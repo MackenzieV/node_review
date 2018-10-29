@@ -32,18 +32,21 @@
           <button @click="updateUser(user)">Update</button>
         </div>
     </div>
-  </div>
-
-
     <fieldset>
       <legend>Add a new user:</legend>
-        ID: <input v-model="newUser.id" type="text"><br>
+        <!-- ID: <input v-model="newUser.id" type="text"><br> -->
         Phone Number: <input v-model="newUser.phoneNumber" type="text"><br>
         E-mail:<input v-model="newUser.email" type="text"><br>
         Age: <input v-model="newUser.age" type="text"><br>
         Gender: <input v-model="newUser.gender" type="text"><br>
       <button v-on:click="addUser(newUser)">Save</button>
     </fieldset>
+
+    <div class="search">
+      Search for user:<input v-model="grabUser" type="text">
+      <button v-on:click="getUser">Save</button>
+    </div>
+  </div>
 
 
     <script type="text/javascript" src="users.js"></script>

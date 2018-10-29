@@ -8,6 +8,7 @@ const User = sequelize.define('user', {
   id: {
     type: Sequelize.BIGINT(11),
     primaryKey: true,
+    autoIncrement:true,
     allowNull: false
   },
   phoneNumber: {

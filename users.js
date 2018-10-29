@@ -1,10 +1,11 @@
 let app = new Vue ({
   el: '#app',
   data: {
+    grabUser: 0,
     pageTitle:'Users',
     users: [],
     newUser: {
-      id: 0,
+      // id: 0,
       phoneNumber: '',
       email:'',
       age: '',
@@ -12,6 +13,15 @@ let app = new Vue ({
       }
   },
   methods: {
+    getUser: function () {
+      axios.get('http://127.0.0.1:3000/get-user/'+ this.grabUser)
+        .then(function (response) {
+          console.log(response.data[0]);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    },
     addUser: function (user) {
       console.log(user);
       axios.post('http://127.0.0.1:3000/add-user/', user)

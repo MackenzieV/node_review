@@ -12,11 +12,13 @@ app.get('/users', function(req,res) {
   })
 })
 
-// app.get('users/:id', function (req, res) {
-//   res.send({
-//
-//   })
-// })
+app.get('get-user/:id', function (req, res) {
+  Users.findById()
+  .then((result) => {
+    res.send(result)
+    console.log(result);
+  })
+})
 
 app.delete('/delete-user/:id', function(req,res) {
   Users.destroy({where: {id:req.params.id}})
@@ -42,7 +44,7 @@ app.patch('/update-user', function(req,res) {
 app.post('/add-user', function(req,res) {
   console.log(req);
     Users.create(req.body)
-    .then((user) => {
+    .then((users) => {
       users.save();
     })
   })
