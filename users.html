@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+  <style>
+    .cards {
+      text-align: center;
+    }
+      .card {
+        border:solid 1px;
+        width: 200px;
+        margin: 0.5em;
+        padding: 0.5em;
+        display:inline-block;
+      }
+  </style>
+  <body>
+    <div id="app">
+      <h1>Users:</h1>
+      <div class="cards">
+        <div class="card" v-for="user in users">
+          <div>Phone Number:<input v-model="user.phoneNumber"></div>
+          <div>E-mail:<input v-model="user.email"></div>
+          <div>Age: <input v-model="user.age"></div>
+          <div>Gender:<input v-model="user.gender"></div>
+
+          <button @click="deleteUser(user.id)">Delete</button>
+          <button @click="updateUser(user)">Update</button>
+        </div>
+    </div>
+  </div>
+
+
+    <fieldset>
+      <legend>Add a new user:</legend>
+        ID: <input v-model="newUser.id" type="text"><br>
+        Phone Number: <input v-model="newUser.phoneNumber" type="text"><br>
+        E-mail:<input v-model="newUser.email" type="text"><br>
+        Age: <input v-model="newUser.age" type="text"><br>
+        Gender: <input v-model="newUser.gender" type="text"><br>
+      <button v-on:click="addUser(newUser)">Save</button>
+    </fieldset>
+
+
+    <script type="text/javascript" src="users.js"></script>
+  </body>
+</html>
